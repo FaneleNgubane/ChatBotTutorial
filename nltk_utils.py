@@ -1,18 +1,19 @@
-try:
-    import nltk
-except ImportError:
-    print("NLTK is not installed. Please install NLTK using 'pip install nltk'.")
+import nltk
 
-nltk.download('punkt')
-from nltk.stem.porter import PorterStemmer
 
+from nltk.stem.porter import PorterStemmer    
+stemmer = PorterStemmer()
 
 def tokenize(sentence):
     return nltk.word_tokenize(sentence)
 
 def stem(word):
-    pass
-
+    return stemmer.stem(word.lower())
 
 def bag_of_words(tokenized_sentence, all_words):
     pass
+
+words = ["organize","organizes","organizing"]
+
+stem_words = [stem(w) for w in words]
+print(stem_words)
